@@ -1,0 +1,1392 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Kumari Ayushi — Data Analyst portfolio featuring Python analytics, business intelligence and machine learning projects."
+    />
+    <title>Kumari Ayushi | Data Analyst</title>
+
+    <style>
+      :root {
+        --bg: #070707;
+        --surface: #101010;
+        --surface-light: #151515;
+        --text: #f5f1e8;
+        --muted: #aaa49a;
+        --gold: #d6ad55;
+        --gold-light: #f1d27e;
+        --gold-dark: #8d6728;
+        --border: rgba(214, 173, 85, 0.38);
+        --shadow: 0 18px 50px rgba(214, 173, 85, 0.1);
+        --max-width: 1160px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--text);
+        background: var(--bg);
+        font-family:
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        overflow-x: hidden;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: -2;
+        opacity: 0.42;
+        background-image:
+          linear-gradient(rgba(214, 173, 85, 0.055) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(214, 173, 85, 0.055) 1px, transparent 1px);
+        background-size: 58px 58px;
+        mask-image: linear-gradient(to bottom, black, transparent 85%);
+      }
+
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: -1;
+        background:
+          radial-gradient(
+            circle at 15% 10%,
+            rgba(214, 173, 85, 0.1),
+            transparent 28%
+          ),
+          radial-gradient(
+            circle at 85% 25%,
+            rgba(214, 173, 85, 0.07),
+            transparent 30%
+          );
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .noise {
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        pointer-events: none;
+        opacity: 0.025;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      }
+
+      nav {
+        position: fixed;
+        top: 18px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: min(1120px, calc(100% - 28px));
+        z-index: 50;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 16px 12px 20px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        background: rgba(10, 10, 10, 0.78);
+        backdrop-filter: blur(18px);
+        box-shadow:
+          0 12px 40px rgba(0, 0, 0, 0.35),
+          0 0 28px rgba(214, 173, 85, 0.08);
+      }
+
+      .brand {
+        font-size: 0.88rem;
+        font-weight: 850;
+        letter-spacing: 0.08em;
+      }
+
+      .brand span {
+        color: var(--gold-light);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 22px;
+        color: #c8c1b6;
+        font-size: 0.84rem;
+      }
+
+      .nav-links a {
+        transition: color 0.25s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--gold-light);
+      }
+
+      .nav-button {
+        padding: 9px 15px;
+        border: 1px solid var(--gold);
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--gold-light), var(--gold));
+        color: #090909;
+        font-size: 0.8rem;
+        font-weight: 850;
+      }
+
+      section {
+        width: min(var(--max-width), calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .hero {
+        min-height: 100vh;
+        padding-top: 120px;
+        display: grid;
+        grid-template-columns: 1.12fr 0.88fr;
+        align-items: center;
+        gap: 48px;
+      }
+
+      .eyebrow,
+      .tag,
+      .meta-item,
+      .skill {
+        border: 1px solid var(--border);
+        background: rgba(214, 173, 85, 0.035);
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        color: var(--gold-light);
+        font-size: 0.75rem;
+        font-weight: 800;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+      }
+
+      .dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--gold-light);
+        box-shadow: 0 0 12px var(--gold-light);
+      }
+
+      h1 {
+        max-width: 760px;
+        margin: 22px 0;
+        font-size: clamp(3.5rem, 7vw, 6.8rem);
+        line-height: 0.9;
+        letter-spacing: -0.065em;
+      }
+
+      .gold {
+        color: var(--gold-light);
+      }
+
+      .hero-copy,
+      .section-sub,
+      .project-description,
+      .card p,
+      .card li {
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .hero-copy {
+        max-width: 680px;
+        font-size: 1.04rem;
+      }
+
+      .profile-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 20px;
+      }
+
+      .meta-item {
+        padding: 7px 10px;
+        border-radius: 999px;
+        color: #d8d1c5;
+        font-size: 0.74rem;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 46px;
+        padding: 0 18px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        transition:
+          transform 0.25s ease,
+          border-color 0.25s ease,
+          box-shadow 0.25s ease;
+      }
+
+      .button:hover {
+        transform: translateY(-3px);
+        border-color: var(--gold);
+        box-shadow: 0 12px 30px rgba(214, 173, 85, 0.13);
+      }
+
+      .button.primary {
+        border-color: var(--gold-light);
+        background: linear-gradient(135deg, var(--gold-light), var(--gold));
+        color: #080808;
+        font-weight: 850;
+      }
+
+      .button.secondary {
+        background: rgba(255, 255, 255, 0.025);
+      }
+
+      .profile-area {
+        position: relative;
+        min-height: 600px;
+        display: grid;
+        place-items: center;
+      }
+
+      .profile-glow {
+        position: absolute;
+        width: 72%;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(214, 173, 85, 0.22),
+          transparent 67%
+        );
+        filter: blur(12px);
+      }
+
+      .photo-stage {
+        position: relative;
+        width: min(420px, 90%);
+        height: 540px;
+        overflow: hidden;
+        border: 1px solid var(--gold-dark);
+        border-radius: 30px;
+        background:
+          linear-gradient(rgba(214, 173, 85, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(214, 173, 85, 0.05) 1px, transparent 1px),
+          linear-gradient(145deg, #151515, #080808);
+        background-size:
+          42px 42px,
+          42px 42px,
+          auto;
+        box-shadow:
+          0 0 55px rgba(214, 173, 85, 0.11),
+          inset 0 0 35px rgba(214, 173, 85, 0.035);
+      }
+
+      .photo-stage::before {
+        content: "";
+        position: absolute;
+        inset: 12px;
+        border: 1px solid rgba(214, 173, 85, 0.18);
+        border-radius: 23px;
+        pointer-events: none;
+        z-index: 3;
+      }
+
+      #profile-photo {
+        position: absolute;
+        width: 230px;
+        height: 300px;
+        object-fit: cover;
+        border: 2px solid var(--gold);
+        border-radius: 22px;
+        box-shadow:
+          0 0 32px rgba(214, 173, 85, 0.28),
+          0 24px 70px rgba(0, 0, 0, 0.58);
+        will-change: transform;
+        user-select: none;
+        pointer-events: none;
+      }
+
+      .photo-caption {
+        position: absolute;
+        z-index: 4;
+        right: 20px;
+        bottom: 20px;
+        left: 20px;
+        padding: 13px 15px;
+        border: 1px solid var(--border);
+        border-radius: 15px;
+        background: rgba(5, 5, 5, 0.7);
+        backdrop-filter: blur(12px);
+        font-size: 0.78rem;
+      }
+
+      .photo-caption strong {
+        color: var(--gold-light);
+      }
+
+      .floating-card {
+        position: absolute;
+        z-index: 5;
+        padding: 11px 13px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: rgba(11, 11, 11, 0.92);
+        box-shadow: var(--shadow);
+        color: #d8d1c5;
+        font-size: 0.72rem;
+        pointer-events: none;
+        animation: cardFloat 6s ease-in-out infinite;
+      }
+
+      .floating-card.one {
+        top: 12%;
+        left: -2%;
+      }
+
+      .floating-card.two {
+        top: 38%;
+        right: -5%;
+        animation-delay: -2s;
+      }
+
+      .floating-card.three {
+        bottom: 17%;
+        left: 0;
+        animation-delay: -4s;
+      }
+
+      @keyframes cardFloat {
+        0%,
+        100% {
+          transform: translate3d(0, 0, 0);
+        }
+        50% {
+          transform: translate3d(0, -12px, 0);
+        }
+      }
+
+      .section-heading {
+        padding-top: 110px;
+        margin-bottom: 30px;
+      }
+
+      .kicker {
+        color: var(--gold-light);
+        font-size: 0.73rem;
+        font-weight: 800;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+      }
+
+      h2 {
+        margin: 10px 0 12px;
+        font-size: clamp(2.35rem, 5vw, 4.3rem);
+        line-height: 1;
+        letter-spacing: -0.045em;
+      }
+
+      .section-sub {
+        max-width: 760px;
+      }
+
+      .project-main {
+        padding: 30px;
+        border: 1px solid var(--gold-dark);
+        border-radius: 28px;
+        background:
+          radial-gradient(
+            circle at 90% 10%,
+            rgba(214, 173, 85, 0.13),
+            transparent 32%
+          ),
+          linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.035),
+            rgba(255, 255, 255, 0.012)
+          );
+        box-shadow:
+          0 0 55px rgba(214, 173, 85, 0.1),
+          inset 0 0 30px rgba(214, 173, 85, 0.025);
+      }
+
+      .project-top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .project-number {
+        color: var(--gold-light);
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.15em;
+      }
+
+      .project-title {
+        margin: 10px 0;
+        font-size: clamp(2rem, 4vw, 3.8rem);
+        letter-spacing: -0.045em;
+      }
+
+      .project-description {
+        max-width: 900px;
+      }
+
+      .tags,
+      .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .tags {
+        margin: 20px 0;
+      }
+
+      .tag,
+      .skill {
+        padding: 7px 10px;
+        border-radius: 999px;
+        color: #ddd6ca;
+        font-size: 0.72rem;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .stat,
+      .card {
+        border: 1px solid var(--border);
+        background: linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.035),
+          rgba(255, 255, 255, 0.012)
+        );
+        box-shadow: var(--shadow);
+      }
+
+      .stat {
+        padding: 18px;
+        border-radius: 17px;
+      }
+
+      .stat strong {
+        display: block;
+        margin-bottom: 4px;
+        color: var(--gold-light);
+        font-size: 1.55rem;
+      }
+
+      .stat span {
+        color: #a8a197;
+        font-size: 0.73rem;
+      }
+
+      .project-grid {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 18px;
+        margin-top: 18px;
+      }
+
+      .card {
+        position: relative;
+        padding: 25px;
+        border-radius: 22px;
+        transition:
+          transform 0.35s ease,
+          border-color 0.35s ease,
+          box-shadow 0.35s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-7px);
+        border-color: rgba(240, 207, 122, 0.72);
+        box-shadow: 0 18px 45px rgba(214, 173, 85, 0.12);
+      }
+
+      .card h3 {
+        margin: 0 0 12px;
+        font-size: 1.15rem;
+      }
+
+      .card p,
+      .card li {
+        font-size: 0.9rem;
+      }
+
+      .card ul {
+        padding-left: 18px;
+        margin-bottom: 0;
+      }
+
+      .insight {
+        margin: 15px 0;
+        padding-left: 15px;
+        border-left: 2px solid var(--gold);
+      }
+
+      .insight strong {
+        color: #f1e4c7;
+      }
+
+      .other-projects {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        margin-top: 18px;
+      }
+
+      .project-card {
+        min-height: 260px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .project-card .project-index {
+        color: var(--gold-light);
+        font-size: 0.7rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+      }
+
+      .project-card h3 {
+        margin-top: 16px;
+        font-size: 1.3rem;
+      }
+
+      .project-card .project-description {
+        flex: 1;
+        font-size: 0.86rem;
+      }
+
+      .project-link {
+        align-self: flex-start;
+        color: var(--gold-light);
+        font-size: 0.78rem;
+        font-weight: 800;
+      }
+
+      .method-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 12px;
+      }
+
+      .method {
+        min-height: 155px;
+      }
+
+      .method .number {
+        color: var(--gold-light);
+        font-size: 0.72rem;
+        font-weight: 800;
+      }
+
+      .method h3 {
+        margin-top: 24px;
+        font-size: 1rem;
+      }
+
+      .method p {
+        font-size: 0.8rem;
+      }
+
+      .skills {
+        margin-top: 22px;
+        gap: 10px;
+      }
+
+      .skill {
+        padding: 11px 14px;
+        border-radius: 12px;
+        font-size: 0.82rem;
+      }
+
+      .about-grid,
+      .certification-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        margin-top: 22px;
+      }
+
+      .certification-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .certification {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        gap: 18px;
+        align-items: center;
+      }
+
+      .certificate-mark {
+        width: 48px;
+        height: 48px;
+        display: grid;
+        place-items: center;
+        border: 1px solid var(--gold);
+        border-radius: 14px;
+        color: var(--gold-light);
+        font-size: 1.25rem;
+        box-shadow: 0 0 22px rgba(214, 173, 85, 0.1);
+      }
+
+      .certificate-info h3 {
+        margin: 0 0 5px;
+        font-size: 1rem;
+      }
+
+      .certificate-info p {
+        margin: 0;
+        font-size: 0.82rem;
+      }
+
+      .certificate-date {
+        color: var(--gold-light);
+        font-size: 0.75rem;
+        white-space: nowrap;
+      }
+
+      .contact {
+        margin: 110px auto 60px;
+        padding: 38px;
+        border: 1px solid var(--gold-dark);
+        border-radius: 28px;
+        text-align: center;
+        background: radial-gradient(
+          circle at 50% 0,
+          rgba(214, 173, 85, 0.13),
+          transparent 55%
+        );
+        box-shadow: var(--shadow);
+      }
+
+      .contact p {
+        max-width: 650px;
+        margin: 0 auto 22px;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      footer {
+        padding: 25px 16px 35px;
+        border-top: 1px solid rgba(214, 173, 85, 0.15);
+        color: #777168;
+        font-size: 0.75rem;
+        text-align: center;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(22px);
+        transition:
+          opacity 0.8s ease,
+          transform 0.8s ease;
+      }
+
+      .reveal.visible {
+        opacity: 1;
+        transform: none;
+      }
+
+      @media (max-width: 900px) {
+        .nav-links {
+          display: none;
+        }
+
+        .hero {
+          grid-template-columns: 1fr;
+          padding-top: 115px;
+        }
+
+        .profile-area {
+          min-height: 570px;
+        }
+
+        .project-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .other-projects {
+          grid-template-columns: 1fr;
+        }
+
+        .method-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .stats {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 560px) {
+        section {
+          width: min(100% - 22px, var(--max-width));
+        }
+
+        nav {
+          top: 10px;
+          width: calc(100% - 18px);
+        }
+
+        h1 {
+          font-size: 3.15rem;
+        }
+
+        .photo-stage {
+          width: 100%;
+          height: 500px;
+        }
+
+        #profile-photo {
+          width: 190px;
+          height: 255px;
+        }
+
+        .floating-card.two {
+          right: 0;
+        }
+
+        .project-main,
+        .card,
+        .contact {
+          padding: 21px;
+        }
+
+        .method-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .stats {
+          gap: 8px;
+        }
+
+        .stat {
+          padding: 13px;
+        }
+
+        .stat strong {
+          font-size: 1.2rem;
+        }
+
+        .certification {
+          grid-template-columns: auto 1fr;
+        }
+
+        .certificate-date {
+          grid-column: 2;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.001ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.001ms !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="noise"></div>
+
+    <nav>
+      <a class="brand" href="#home">KUMARI AYUSHI<span></span></a>
+
+      <div class="nav-links">
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <a class="nav-button" href="mailto:kumariayushi8383@gmail.com"
+        >Email me</a
+      >
+    </nav>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="reveal">
+          <div class="eyebrow">
+            <span class="dot"></span>
+            DATA ANALYST · BUSINESS INTELLIGENCE
+          </div>
+
+          <h1>
+            Turning <span class="gold">data</span><br />
+            into impact.
+          </h1>
+
+          <p class="hero-copy">
+            I’m Kumari Ayushi, a B.Tech Computer Science and Engineering student
+            and Data Analyst Intern at Bondub. I work with Python, SQL, Power
+            BI, Excel and Tableau to turn raw data into useful insights and
+            clear business decisions.
+          </p>
+
+          <div class="profile-meta">
+            <span class="meta-item">Data Analyst Intern @ Bondub</span>
+            <span class="meta-item">Ex-AI-ML Intern @ Eduskills</span>
+            <span class="meta-item">Galgotias University</span>
+          </div>
+
+          <div class="hero-actions">
+            <a class="button primary" href="#projects">View my projects →</a>
+            <a
+              class="button secondary"
+              href="https://github.com/KumariAyushi10"
+              target="_blank"
+              rel="noopener"
+              >GitHub ↗</a
+            >
+            <a
+              class="button secondary"
+              href="https://www.linkedin.com/in/kumariayushi"
+              target="_blank"
+              rel="noopener"
+              >LinkedIn ↗</a
+            >
+          </div>
+        </div>
+
+        <div class="profile-area reveal" id="profileArea">
+          <div class="profile-glow"></div>
+
+          <div class="floating-card one">RFM + K-Means</div>
+          <div class="floating-card two">Python · SQL · BI</div>
+          <div class="floating-card three">Business Insights</div>
+
+          <div class="photo-stage" id="photoStage">
+            <img
+              id="profile-photo"
+              src="assets/profile.jpeg"
+              alt=" Kumari Ayushi profile photo"
+            />
+
+            <div class="photo-caption">
+              <strong>Kumari Ayushi</strong><br />
+              Data Analyst · Python · Business Intelligence
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <div class="section-heading reveal">
+          <div class="kicker">01 / Projects</div>
+          <h2>Selected work.</h2>
+          <p class="section-sub">
+            A collection of analytics, machine learning and Python projects
+            focused on solving practical problems with data.
+          </p>
+        </div>
+
+        <article class="project-main reveal">
+          <div class="project-top">
+            <div class="project-number">
+              01 · RETAIL CUSTOMER & SALES ANALYTICS
+            </div>
+            <a
+              class="project-link"
+              href="https://github.com/KumariAyushi10/superstore-retail-analytics"
+              target="_blank"
+              rel="noopener"
+              >View repository ↗</a
+            >
+          </div>
+
+          <h3 class="project-title">Superstore Retail Analytics</h3>
+
+          <p class="project-description">
+            An end-to-end analysis of the Sample Superstore dataset using
+            Python. The project combines customer segmentation, retention
+            analysis, seasonality, Pareto analysis and product profitability to
+            turn thousands of retail transactions into business recommendations.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">Pandas</span>
+            <span class="tag">NumPy</span>
+            <span class="tag">Scikit-learn</span>
+            <span class="tag">Matplotlib</span>
+            <span class="tag">Seaborn</span>
+            <span class="tag">RFM</span>
+            <span class="tag">K-Means</span>
+            <span class="tag">Cohort Analysis</span>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <strong>9,994</strong><span>order line items</span>
+            </div>
+            <div class="stat">
+              <strong>5,009</strong><span>orders analyzed</span>
+            </div>
+            <div class="stat"><strong>793</strong><span>customers</span></div>
+            <div class="stat">
+              <strong>2014–2017</strong><span>analysis period</span>
+            </div>
+          </div>
+        </article>
+
+        <div class="project-grid">
+          <div class="card reveal">
+            <h3>Key findings</h3>
+
+            <div class="insight">
+              <strong>Discounts can destroy margin.</strong>
+              <p>
+                Profit margin is about 30% at 0% discount and declines as
+                discounts increase, becoming negative at 21%+ discount.
+              </p>
+            </div>
+
+            <div class="insight">
+              <strong>Revenue can hide product problems.</strong>
+              <p>
+                Tables and Bookcases generate meaningful revenue but are
+                unprofitable overall in the dataset.
+              </p>
+            </div>
+
+            <div class="insight">
+              <strong>Revenue is concentrated.</strong>
+              <p>
+                8 of 17 sub-categories contribute roughly 80% of total revenue,
+                giving the business a clear prioritization opportunity.
+              </p>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <h3>Business recommendations</h3>
+            <ul>
+              <li>Set a disciplined discount ceiling.</li>
+              <li>Review pricing and costs for loss-making categories.</li>
+              <li>Give high-value customers targeted VIP treatment.</li>
+              <li>Run win-back campaigns for at-risk customers.</li>
+              <li>Investigate the early cohort-retention drop.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="other-projects">
+          <article class="card project-card reveal">
+            <div class="project-index">02 · PYTHON / AI</div>
+            <h3>AI Resume Analyser</h3>
+            <p class="project-description">
+              A Python and Flask application that analyzes PDF, DOCX and TXT
+              resumes, calculates an ATS compatibility score, identifies skill
+              gaps and provides actionable improvement suggestions.
+            </p>
+            <a
+              class="project-link"
+              href="https://github.com/KumariAyushi10/AI_Resume_Analyser"
+              target="_blank"
+              rel="noopener"
+              >View on GitHub ↗</a
+            >
+          </article>
+
+          <article class="card project-card reveal">
+            <div class="project-index">03 · PYTHON / AI</div>
+            <h3>Smart Energy Meter</h3>
+            <p class="project-description">
+              An AI-based energy meter project built around a dataset, with
+              features such as eco-mode and theft detection to represent and
+              monitor energy-related data.
+            </p>
+            <a
+              class="project-link"
+              href="https://github.com/KumariAyushi10/SmartEnergyMeter"
+              target="_blank"
+              rel="noopener"
+              >View on GitHub ↗</a
+            >
+          </article>
+
+          <article class="card project-card reveal">
+            <div class="project-index">04 · PYTHON / AUTOMATION</div>
+            <h3>Robobuddy</h3>
+            <p class="project-description">
+              A Python assistant for everyday tasks including web search,
+              YouTube and Google access, weather, alarms, email, nearby-location
+              search, music playback and opening local applications.
+            </p>
+            <a
+              class="project-link"
+              href="https://github.com/KumariAyushi10/Robobuddy"
+              target="_blank"
+              rel="noopener"
+              >View on GitHub ↗</a
+            >
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-heading reveal">
+          <div class="kicker">02 / Analytical workflow</div>
+          <h2>From raw rows to useful decisions.</h2>
+        </div>
+
+        <div class="method-grid">
+          <div class="card method reveal">
+            <div class="number">01</div>
+            <h3>Data Quality</h3>
+            <p>Load, reshape and validate raw data before analysis.</p>
+          </div>
+
+          <div class="card method reveal">
+            <div class="number">02</div>
+            <h3>Customer RFM</h3>
+            <p>
+              Use Recency, Frequency and Monetary value to segment customers.
+            </p>
+          </div>
+
+          <div class="card method reveal">
+            <div class="number">03</div>
+            <h3>Clustering</h3>
+            <p>Cross-check segmentation with K-Means clustering.</p>
+          </div>
+
+          <div class="card method reveal">
+            <div class="number">04</div>
+            <h3>Retention</h3>
+            <p>Track acquisition cohorts and customer retention over time.</p>
+          </div>
+
+          <div class="card method reveal">
+            <div class="number">05</div>
+            <h3>Profitability</h3>
+            <p>
+              Compare revenue, discounts and profit to find margin problems.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills">
+        <div class="section-heading reveal">
+          <div class="kicker">03 / Skills</div>
+          <h2>Tools I work with.</h2>
+          <p class="section-sub">
+            A practical toolkit spanning programming, databases, visualization,
+            business intelligence and machine learning.
+          </p>
+
+          <div class="skills">
+            <span class="skill">Python</span>
+            <span class="skill">SQL</span>
+            <span class="skill">Power BI</span>
+            <span class="skill">Microsoft Excel</span>
+            <span class="skill">Tableau</span>
+            <span class="skill">Pandas</span>
+            <span class="skill">NumPy</span>
+            <span class="skill">Scikit-learn</span>
+            <span class="skill">Matplotlib</span>
+            <span class="skill">Seaborn</span>
+            <span class="skill">RFM Segmentation</span>
+            <span class="skill">K-Means</span>
+            <span class="skill">Cohort Analysis</span>
+            <span class="skill">Time-Series Analysis</span>
+            <span class="skill">Data Visualization</span>
+            <span class="skill">Business Intelligence</span>
+            <span class="skill">Git & GitHub</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience">
+        <div class="section-heading reveal">
+          <div class="kicker">04 / Experience & education</div>
+          <h2>Where I’m building experience.</h2>
+
+          <div class="about-grid">
+            <article class="card reveal">
+              <div class="kicker">CURRENT</div>
+              <h3>Data Analyst Intern · Bondub</h3>
+              <p>
+                Working with data to identify patterns, communicate insights and
+                support data-driven decisions.
+              </p>
+            </article>
+
+            <article class="card reveal">
+              <div class="kicker">EDUCATION</div>
+              <h3>B.Tech · Computer Science & Engineering</h3>
+              <p>Galgotias University, Greater Noida, Uttar Pradesh, India.</p>
+            </article>
+
+            <article class="card reveal">
+              <div class="kicker">PREVIOUS</div>
+              <h3>AI-ML Intern · Eduskills</h3>
+              <p>
+                AI/ML internship experience through the Eduskills program,
+                supported by Google for Developers.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="certifications">
+        <div class="section-heading reveal">
+          <div class="kicker">05 / Licenses & certifications</div>
+          <h2>Continuous learning.</h2>
+
+          <div class="certification-grid">
+            <article class="card certification reveal">
+              <div class="certificate-mark">✦</div>
+
+              <div class="certificate-info">
+                <h3>
+                  Data Analyst in Python, Tableau, SQL & ChatGPT with Projects
+                </h3>
+                <p>Udemy · Python, SQL and Tableau</p>
+              </div>
+
+              <div class="certificate-date">Issued Aug 2026</div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact" id="contact">
+        <div class="kicker">06 / Contact</div>
+        <h2>Let’s work with data.</h2>
+
+        <p>
+          Interested in analytics, business intelligence, Python projects or
+          turning a dataset into a clear story? Feel free to get in touch.
+        </p>
+
+        <div class="hero-actions" style="justify-content: center">
+          <a class="button primary" href="mailto:kumariayushi8383@gmail.com">
+            Email Kumari Ayushi ↗
+          </a>
+
+          <a
+            class="button secondary"
+            href="https://www.linkedin.com/in/kumariayushi"
+            target="_blank"
+            rel="noopener"
+          >
+            LinkedIn ↗
+          </a>
+
+          <a
+            class="button secondary"
+            href="https://github.com/KumariAyushi10"
+            target="_blank"
+            rel="noopener"
+          >
+            GitHub ↗
+          </a>
+        </div>
+
+        <p style="margin-top: 18px; margin-bottom: 0">
+          <a
+            href="mailto:kumariayushi8383@gmail.com"
+            style="color: var(--gold-light)"
+          >
+            kumariayushi8383@gmail.com
+          </a>
+        </p>
+      </section>
+    </main>
+
+    <footer>© 2026 Kumari Ayushi · Data Analytics Portfolio</footer>
+
+    <script>
+      const stage = document.getElementById("photoStage");
+      const photo = document.getElementById("profile-photo");
+      const profileArea = document.getElementById("profileArea");
+      const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      );
+
+      let stageWidth = 0;
+      let stageHeight = 0;
+      let photoWidth = 0;
+      let photoHeight = 0;
+
+      let mouseX = 0.5;
+      let mouseY = 0.5;
+      let smoothMouseX = 0.5;
+      let smoothMouseY = 0.5;
+
+      let scrollTarget = 0;
+      let smoothScroll = 0;
+      let startTime = performance.now();
+
+      function measurePhotoArea() {
+        const stageBox = stage.getBoundingClientRect();
+        const photoBox = photo.getBoundingClientRect();
+
+        stageWidth = stageBox.width;
+        stageHeight = stageBox.height;
+        photoWidth = photoBox.width;
+        photoHeight = photoBox.height;
+      }
+
+      function updateMouse(event) {
+        const rect = profileArea.getBoundingClientRect();
+
+        mouseX = Math.max(
+          0,
+          Math.min(1, (event.clientX - rect.left) / rect.width),
+        );
+        mouseY = Math.max(
+          0,
+          Math.min(1, (event.clientY - rect.top) / rect.height),
+        );
+      }
+
+      function updateScrollTarget() {
+        const rect = profileArea.getBoundingClientRect();
+        const viewportCenter = window.innerHeight / 2;
+        const distanceFromCenter = rect.top + rect.height / 2 - viewportCenter;
+
+        scrollTarget = Math.max(
+          -1,
+          Math.min(1, distanceFromCenter / window.innerHeight),
+        );
+      }
+
+      function animatePhoto(now) {
+        if (reduceMotion.matches) {
+          photo.style.transform = "translate3d(50px, 70px, 0)";
+          return;
+        }
+
+        const elapsed = (now - startTime) / 1000;
+
+        smoothMouseX += (mouseX - smoothMouseX) * 0.035;
+        smoothMouseY += (mouseY - smoothMouseY) * 0.035;
+        smoothScroll += (scrollTarget - smoothScroll) * 0.045;
+
+        const usableX = Math.max(0, stageWidth - photoWidth - 24);
+        const usableY = Math.max(0, stageHeight - photoHeight - 78);
+
+        const centerX = usableX / 2 + 12;
+        const centerY = usableY / 2 + 12;
+
+        const organicX =
+          Math.sin(elapsed * 0.42) * usableX * 0.31 +
+          Math.sin(elapsed * 0.71 + 1.4) * usableX * 0.08;
+
+        const organicY =
+          Math.cos(elapsed * 0.34) * usableY * 0.3 +
+          Math.sin(elapsed * 0.58) * usableY * 0.08;
+
+        const mouseOffsetX = (smoothMouseX - 0.5) * usableX * 0.26;
+        const mouseOffsetY = (smoothMouseY - 0.5) * usableY * 0.18;
+
+        const scrollOffsetY = smoothScroll * usableY * 0.16;
+        const rotation =
+          Math.sin(elapsed * 0.35) * 2.4 +
+          (smoothMouseX - 0.5) * 3 +
+          smoothScroll * -2;
+
+        const x = Math.max(
+          0,
+          Math.min(usableX, centerX + organicX + mouseOffsetX),
+        );
+        const y = Math.max(
+          0,
+          Math.min(usableY, centerY + organicY + mouseOffsetY + scrollOffsetY),
+        );
+
+        photo.style.transform = `translate3d(${x}px, ${y}px, 0) rotate(${rotation}deg)`;
+
+        requestAnimationFrame(animatePhoto);
+      }
+
+      const resizeObserver = new ResizeObserver(measurePhotoArea);
+      resizeObserver.observe(stage);
+      resizeObserver.observe(photo);
+
+      window.addEventListener("resize", () => {
+        measurePhotoArea();
+        updateScrollTarget();
+      });
+
+      window.addEventListener("mousemove", updateMouse, { passive: true });
+      window.addEventListener("scroll", updateScrollTarget, { passive: true });
+
+      measurePhotoArea();
+      updateScrollTarget();
+      requestAnimationFrame(animatePhoto);
+
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 },
+      );
+
+      document.querySelectorAll(".reveal").forEach((element) => {
+        revealObserver.observe(element);
+      });
+    </script>
+  </body>
+</html>
