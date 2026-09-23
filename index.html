@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,6 +9,19 @@
       content="Kumari Ayushi — Data Analyst portfolio featuring SQL, Python analytics, A/B testing, business intelligence and machine learning projects."
     />
     <title>Kumari Ayushi | Data Analyst</title>
+
+    <link rel="icon" href="assets/profile.jpeg" type="image/jpeg" />
+    <link rel="icon" sizes="32x32" href="assets/profile.jpeg" type="image/jpeg" />
+    <link rel="shortcut icon" href="assets/profile.jpeg" type="image/jpeg" />
+    <link rel="apple-touch-icon" href="assets/profile.jpeg" />
+    <meta name="theme-color" content="#070707" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
 
     <style>
       :root {
@@ -21,11 +35,50 @@
         --gold-dark: #8d6728;
         --border: rgba(214, 173, 85, 0.38);
         --shadow: 0 18px 50px rgba(214, 173, 85, 0.1);
+        --nav-bg: rgba(10, 10, 10, 0.78);
+        --grid-line: rgba(214, 173, 85, 0.055);
+        --polaroid-bg: #f7f4ec;
+        --polaroid-ink: #26231c;
         --max-width: 1160px;
+        color-scheme: dark;
+      }
+
+      :root[data-theme="light"] {
+        --bg: #f6f2e9;
+        --surface: #ffffff;
+        --surface-light: #fffdf8;
+        --text: #201c14;
+        --muted: #6b6355;
+        --gold: #b3812f;
+        --gold-light: #8a5f1e;
+        --gold-dark: #6b4a17;
+        --border: rgba(138, 95, 30, 0.32);
+        --shadow: 0 18px 45px rgba(138, 95, 30, 0.14);
+        --nav-bg: rgba(255, 253, 248, 0.82);
+        --grid-line: rgba(138, 95, 30, 0.09);
+        --polaroid-bg: #ffffff;
+        --polaroid-ink: #26231c;
+        color-scheme: light;
       }
 
       * {
         box-sizing: border-box;
+      }
+
+      body,
+      nav,
+      .card,
+      .stat,
+      .button,
+      .meta-item,
+      .tag,
+      .skill,
+      .project-main {
+        transition:
+          background-color 0.45s ease,
+          border-color 0.45s ease,
+          color 0.45s ease,
+          box-shadow 0.45s ease;
       }
 
       html {
@@ -54,8 +107,8 @@
         z-index: -2;
         opacity: 0.42;
         background-image:
-          linear-gradient(rgba(214, 173, 85, 0.055) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(214, 173, 85, 0.055) 1px, transparent 1px);
+          linear-gradient(var(--grid-line) 1px, transparent 1px),
+          linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
         background-size: 58px 58px;
         mask-image: linear-gradient(to bottom, black, transparent 85%);
       }
@@ -77,6 +130,107 @@
             rgba(214, 173, 85, 0.07),
             transparent 30%
           );
+        background-size: 140% 140%;
+        animation: blobDrift 22s ease-in-out infinite alternate;
+      }
+
+      @keyframes blobDrift {
+        0% {
+          background-position:
+            0% 0%,
+            100% 0%;
+        }
+        50% {
+          background-position:
+            15% 20%,
+            80% 35%;
+        }
+        100% {
+          background-position:
+            5% 10%,
+            95% 10%;
+        }
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      @keyframes popIn {
+        0% {
+          opacity: 0;
+          transform: translateY(12px) scale(0.85);
+        }
+        70% {
+          opacity: 1;
+          transform: translateY(-2px) scale(1.04);
+        }
+        100% {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      @keyframes pulseDot {
+        0%,
+        100% {
+          box-shadow: 0 0 0 0 rgba(214, 173, 85, 0.55);
+          transform: scale(1);
+        }
+        50% {
+          box-shadow: 0 0 0 7px rgba(214, 173, 85, 0);
+          transform: scale(1.15);
+        }
+      }
+
+      @keyframes shimmerSweep {
+        0% {
+          transform: translateX(-120%) skewX(-15deg);
+        }
+        100% {
+          transform: translateX(220%) skewX(-15deg);
+        }
+      }
+
+      @keyframes underlineGrow {
+        from {
+          transform: scaleX(0);
+        }
+        to {
+          transform: scaleX(1);
+        }
+      }
+
+      @keyframes spinSlow {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes floatSlow {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-14px);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        body::after {
+          animation: none;
+        }
       }
 
       a {
@@ -106,11 +260,50 @@
         padding: 12px 16px 12px 20px;
         border: 1px solid var(--border);
         border-radius: 999px;
-        background: rgba(10, 10, 10, 0.78);
+        background: var(--nav-bg);
         backdrop-filter: blur(18px);
+        animation: navDrop 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
         box-shadow:
-          0 12px 40px rgba(0, 0, 0, 0.35),
+          0 12px 40px rgba(0, 0, 0, 0.2),
           0 0 28px rgba(214, 173, 85, 0.08);
+      }
+
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .theme-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: 1px solid var(--border);
+        background: rgba(214, 173, 85, 0.08);
+        color: var(--gold-light);
+        font-size: 1rem;
+        cursor: pointer;
+        flex: none;
+      }
+
+      .theme-toggle:hover {
+        border-color: var(--gold);
+      }
+
+      .theme-toggle .icon-moon {
+        display: inline;
+      }
+      .theme-toggle .icon-sun {
+        display: none;
+      }
+      :root[data-theme="light"] .theme-toggle .icon-moon {
+        display: none;
+      }
+      :root[data-theme="light"] .theme-toggle .icon-sun {
+        display: inline;
       }
 
       .brand {
@@ -126,16 +319,45 @@
       .nav-links {
         display: flex;
         gap: 22px;
-        color: #c8c1b6;
+        color: var(--muted);
         font-size: 0.84rem;
       }
 
       .nav-links a {
+        position: relative;
         transition: color 0.25s ease;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -4px;
+        height: 1.5px;
+        background: var(--gold-light);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+      }
+
+      .nav-links a:hover::after {
+        transform: scaleX(1);
       }
 
       .nav-links a:hover {
         color: var(--gold-light);
+      }
+
+      @keyframes navDrop {
+        from {
+          opacity: 0;
+          transform: translate(-50%, -30px);
+        }
+        to {
+          opacity: 1;
+          transform: translate(-50%, 0);
+        }
       }
 
       .nav-button {
@@ -146,11 +368,85 @@
         color: #090909;
         font-size: 0.8rem;
         font-weight: 850;
+        white-space: nowrap;
+      }
+
+      .nav-toggle {
+        display: none;
+        width: 38px;
+        height: 38px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.025);
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        flex-direction: column;
+        cursor: pointer;
+        flex: none;
+      }
+
+      .nav-toggle span {
+        display: block;
+        width: 18px;
+        height: 2px;
+        border-radius: 2px;
+        background: var(--gold-light);
+        transition: transform 0.25s ease, opacity 0.25s ease;
+      }
+
+      .nav-toggle.open span:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+      }
+
+      .nav-toggle.open span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .nav-toggle.open span:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+      }
+
+      .nav-links-mobile {
+        display: none;
+        position: fixed;
+        top: 72px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: min(360px, calc(100% - 28px));
+        z-index: 49;
+        flex-direction: column;
+        gap: 4px;
+        padding: 14px;
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        background: var(--nav-bg);
+        backdrop-filter: blur(18px);
+        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+      }
+
+      .nav-links-mobile.open {
+        display: flex;
+      }
+
+      .nav-links-mobile a {
+        padding: 11px 12px;
+        border-radius: 12px;
+        color: var(--muted);
+        font-size: 0.92rem;
+        font-weight: 700;
+      }
+
+      .nav-links-mobile a:hover,
+      .nav-links-mobile a:active {
+        background: rgba(214, 173, 85, 0.1);
+        color: var(--gold-light);
       }
 
       section {
         width: min(var(--max-width), calc(100% - 32px));
         margin: 0 auto;
+        scroll-margin-top: 100px;
       }
 
       .hero {
@@ -189,6 +485,7 @@
         border-radius: 50%;
         background: var(--gold-light);
         box-shadow: 0 0 12px var(--gold-light);
+        animation: pulseDot 1.8s ease-in-out infinite;
       }
 
       h1 {
@@ -200,7 +497,28 @@
       }
 
       .gold {
-        color: var(--gold-light);
+        background: linear-gradient(
+          100deg,
+          var(--gold-dark) 0%,
+          var(--gold-light) 25%,
+          #fff3d0 50%,
+          var(--gold-light) 75%,
+          var(--gold-dark) 100%
+        );
+        background-size: 250% 100%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        animation: goldShine 5s linear infinite;
+      }
+
+      @keyframes goldShine {
+        0% {
+          background-position: 0% 50%;
+        }
+        100% {
+          background-position: 250% 50%;
+        }
       }
 
       .hero-copy,
@@ -227,7 +545,7 @@
       .meta-item {
         padding: 7px 10px;
         border-radius: 999px;
-        color: #d8d1c5;
+        color: var(--text);
         font-size: 0.74rem;
       }
 
@@ -239,6 +557,8 @@
       }
 
       .button {
+        position: relative;
+        overflow: hidden;
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -253,10 +573,43 @@
           box-shadow 0.25s ease;
       }
 
+      .button::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        width: 40%;
+        background: linear-gradient(
+          100deg,
+          transparent,
+          rgba(255, 255, 255, 0.35),
+          transparent
+        );
+        transform: translateX(-120%) skewX(-15deg);
+        pointer-events: none;
+      }
+
+      .button:hover::before {
+        animation: shimmerSweep 0.9s ease forwards;
+      }
+
       .button:hover {
         transform: translateY(-3px);
         border-color: var(--gold);
         box-shadow: 0 12px 30px rgba(214, 173, 85, 0.13);
+      }
+
+      .button.primary {
+        animation: primaryPulse 2.6s ease-in-out infinite;
+      }
+
+      @keyframes primaryPulse {
+        0%,
+        100% {
+          box-shadow: 0 0 0 0 rgba(214, 173, 85, 0.35);
+        }
+        50% {
+          box-shadow: 0 0 0 10px rgba(214, 173, 85, 0);
+        }
       }
 
       .button.primary {
@@ -275,6 +628,7 @@
         min-height: 600px;
         display: grid;
         place-items: center;
+        perspective: 1400px;
       }
 
       .profile-glow {
@@ -290,67 +644,113 @@
         filter: blur(12px);
       }
 
+      /* --- Polaroid-style photo card --- */
       .photo-stage {
         position: relative;
-        width: min(420px, 90%);
-        height: 540px;
-        overflow: hidden;
-        border: 1px solid var(--gold-dark);
-        border-radius: 30px;
-        background:
-          linear-gradient(rgba(214, 173, 85, 0.05) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(214, 173, 85, 0.05) 1px, transparent 1px),
-          linear-gradient(145deg, #151515, #080808);
-        background-size:
-          42px 42px,
-          42px 42px,
-          auto;
-        box-shadow:
-          0 0 55px rgba(214, 173, 85, 0.11),
-          inset 0 0 35px rgba(214, 173, 85, 0.035);
+        width: min(340px, 88%);
+        aspect-ratio: 3 / 3.85;
+        transform-style: preserve-3d;
+        will-change: transform;
+        cursor: default;
       }
 
-      .photo-stage::before {
-        content: "";
+      .polaroid-frame {
         position: absolute;
-        inset: 12px;
-        border: 1px solid rgba(214, 173, 85, 0.18);
-        border-radius: 23px;
-        pointer-events: none;
-        z-index: 3;
+        inset: 0;
+        background: var(--polaroid-bg);
+        border-radius: 6px;
+        padding: 16px 16px 0;
+        box-shadow:
+          0 45px 70px -25px rgba(0, 0, 0, 0.55),
+          0 16px 34px -12px rgba(0, 0, 0, 0.38),
+          0 0 42px rgba(214, 173, 85, 0.16);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+
+      .polaroid-tape {
+        position: absolute;
+        top: -12px;
+        left: 50%;
+        width: 84px;
+        height: 26px;
+        transform: translateX(-50%) rotate(-2.5deg);
+        background: linear-gradient(
+          120deg,
+          rgba(255, 255, 255, 0.65),
+          rgba(255, 255, 255, 0.28)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+        z-index: 5;
+      }
+
+      .polaroid-photo-well {
+        position: relative;
+        flex: 1;
+        border-radius: 2px;
+        overflow: hidden;
+        background: linear-gradient(145deg, #1c1c1c, #0a0a0a);
       }
 
       #profile-photo {
         position: absolute;
-        width: 230px;
-        height: 300px;
+        inset: 0;
+        width: 100%;
+        height: 100%;
         object-fit: cover;
-        border: 2px solid var(--gold);
-        border-radius: 22px;
-        box-shadow:
-          0 0 32px rgba(214, 173, 85, 0.28),
-          0 24px 70px rgba(0, 0, 0, 0.58);
-        will-change: transform;
+        filter: saturate(1.05) contrast(1.03);
         user-select: none;
         pointer-events: none;
       }
 
-      .photo-caption {
+      .polaroid-photo-well::after {
+        content: "";
         position: absolute;
-        z-index: 4;
-        right: 20px;
-        bottom: 20px;
-        left: 20px;
-        padding: 13px 15px;
-        border: 1px solid var(--border);
-        border-radius: 15px;
-        background: rgba(5, 5, 5, 0.7);
-        backdrop-filter: blur(12px);
-        font-size: 0.78rem;
+        inset: 0;
+        box-shadow: inset 0 0 26px rgba(0, 0, 0, 0.28);
+        pointer-events: none;
+      }
+
+      .photo-caption {
+        padding: 14px 6px 18px;
+        text-align: center;
+        font-family: "Caveat", cursive;
+        font-size: 1.35rem;
+        line-height: 1.15;
+        color: var(--polaroid-ink);
       }
 
       .photo-caption strong {
-        color: var(--gold-light);
+        display: block;
+        font-size: 1.6rem;
+        color: var(--gold-dark);
+      }
+
+      .photo-sheen {
+        position: absolute;
+        inset: 0;
+        z-index: 4;
+        border-radius: 6px;
+        background: linear-gradient(
+          115deg,
+          rgba(255, 255, 255, 0.16) 0%,
+          rgba(255, 255, 255, 0) 32%
+        );
+        pointer-events: none;
+        mix-blend-mode: overlay;
+      }
+
+      /* Once the hero scrolls out of view, the polaroid settles into this
+         one fixed spot and stays there — visible on every section, in
+         both scroll directions — instead of hiding or moving around. */
+      .photo-stage.pinned {
+        position: fixed;
+        right: clamp(14px, 4vw, 40px);
+        bottom: clamp(14px, 4vh, 40px);
+        width: clamp(120px, 15vw, 190px);
+        z-index: 45;
       }
 
       .floating-card {
@@ -359,9 +759,9 @@
         padding: 11px 13px;
         border: 1px solid var(--border);
         border-radius: 14px;
-        background: rgba(11, 11, 11, 0.92);
+        background: var(--surface);
         box-shadow: var(--shadow);
-        color: #d8d1c5;
+        color: var(--text);
         font-size: 0.72rem;
         pointer-events: none;
         animation: cardFloat 6s ease-in-out infinite;
@@ -408,10 +808,30 @@
       }
 
       h2 {
+        position: relative;
+        display: inline-block;
         margin: 10px 0 12px;
         font-size: clamp(2.35rem, 5vw, 4.3rem);
         line-height: 1;
         letter-spacing: -0.045em;
+      }
+
+      h2::after {
+        content: "";
+        position: absolute;
+        left: 2px;
+        bottom: -6px;
+        width: 72px;
+        height: 3px;
+        border-radius: 3px;
+        background: linear-gradient(90deg, var(--gold), var(--gold-light));
+        transform: scaleX(0);
+        transform-origin: left;
+      }
+
+      .reveal.visible h2::after {
+        animation: underlineGrow 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.25s
+          both;
       }
 
       .section-sub {
@@ -482,7 +902,7 @@
       .skill {
         padding: 7px 10px;
         border-radius: 999px;
-        color: #ddd6ca;
+        color: var(--text);
         font-size: 0.72rem;
       }
 
@@ -517,7 +937,7 @@
       }
 
       .stat span {
-        color: #a8a197;
+        color: var(--muted);
         font-size: 0.73rem;
       }
 
@@ -566,7 +986,7 @@
       }
 
       .insight strong {
-        color: #f1e4c7;
+        color: var(--text);
       }
 
       .other-projects {
@@ -727,10 +1147,11 @@
 
       .reveal {
         opacity: 0;
-        transform: translateY(22px);
+        transform: translateY(22px) scale(0.985);
         transition:
-          opacity 0.8s ease,
-          transform 0.8s ease;
+          opacity 0.7s ease,
+          transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        transition-delay: calc(var(--stagger, 0) * 90ms);
       }
 
       .reveal.visible {
@@ -738,9 +1159,45 @@
         transform: none;
       }
 
+      .tags .tag,
+      .skills .skill,
+      .stats .stat,
+      .method-grid .method,
+      .other-projects .project-card {
+        opacity: 0;
+        transform: translateY(10px) scale(0.9);
+        transition:
+          opacity 0.4s ease,
+          transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        transition-delay: calc(var(--stagger, 0) * 55ms);
+      }
+
+      .reveal.visible .tags .tag,
+      .reveal.visible .skills .skill,
+      .reveal.visible .stats .stat,
+      .reveal.visible.method-grid .method,
+      .reveal.visible .other-projects .project-card {
+        opacity: 1;
+        transform: none;
+      }
+
+      @media (max-width: 1024px) {
+        .method-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .hero {
+          gap: 28px;
+        }
+      }
+
       @media (max-width: 900px) {
         .nav-links {
           display: none;
+        }
+
+        .nav-toggle {
+          display: flex;
         }
 
         .hero {
@@ -773,6 +1230,12 @@
         }
       }
 
+      @media (max-width: 680px) {
+        .hero {
+          padding-top: 130px;
+        }
+      }
+
       @media (max-width: 560px) {
         section {
           width: min(100% - 22px, var(--max-width));
@@ -781,24 +1244,31 @@
         nav {
           top: 10px;
           width: calc(100% - 18px);
+          padding: 10px 12px 10px 16px;
+        }
+
+        .nav-links-mobile {
+          top: 64px;
+        }
+
+        .nav-button {
+          display: none;
         }
 
         h1 {
-          font-size: 3.15rem;
+          font-size: 2.7rem;
         }
 
         .photo-stage {
-          width: 100%;
-          height: 500px;
-        }
-
-        #profile-photo {
-          width: 190px;
-          height: 255px;
+          width: min(300px, 82%);
         }
 
         .floating-card.two {
           right: 0;
+        }
+
+        .floating-card.one {
+          left: 0;
         }
 
         .project-main,
@@ -812,6 +1282,7 @@
         }
 
         .stats {
+          grid-template-columns: 1fr 1fr;
           gap: 8px;
         }
 
@@ -829,6 +1300,16 @@
 
         .certificate-date {
           grid-column: 2;
+        }
+      }
+
+      @media (max-width: 380px) {
+        .method-grid {
+          grid-template-columns: 1fr;
+        }
+
+        h1 {
+          font-size: 2.3rem;
         }
       }
 
@@ -856,6 +1337,7 @@
 
       <div class="nav-links">
         <a href="#projects">Projects</a>
+        <a href="#workflow">Workflow</a>
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
         <a href="#certifications">Certifications</a>
@@ -863,10 +1345,44 @@
         <a href="#contact">Contact</a>
       </div>
 
-      <a class="nav-button" href="mailto:kumariayushi8383@gmail.com"
-        >Email me</a
-      >
+      <div class="nav-right">
+        <button
+          class="theme-toggle"
+          id="themeToggle"
+          type="button"
+          aria-label="Toggle light and dark mode"
+          title="Toggle theme"
+        >
+          <span class="icon-moon">🌙</span>
+          <span class="icon-sun">☀️</span>
+        </button>
+
+        <a class="nav-button" href="mailto:kumariayushi8383@gmail.com"
+          >Email me</a
+        >
+
+        <button
+          class="nav-toggle"
+          id="navToggle"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="navLinksMobile"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </nav>
+
+    <div class="nav-links-mobile" id="navLinksMobile">
+      <a href="#projects">Projects</a>
+      <a href="#workflow">Workflow</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </div>
 
     <main>
       <section class="hero" id="home">
@@ -913,7 +1429,7 @@
           </div>
         </div>
 
-        <div class="profile-area reveal" id="profileArea">
+        <div class="profile-area" id="profileArea">
           <div class="profile-glow"></div>
 
           <div class="floating-card one">RFM + K-Means</div>
@@ -921,15 +1437,20 @@
           <div class="floating-card three">Business Insights</div>
 
           <div class="photo-stage" id="photoStage">
-            <img
-              id="profile-photo"
-              src="assets/profile.jpeg"
-              alt=" Kumari Ayushi profile photo"
-            />
-
-            <div class="photo-caption">
-              <strong>Kumari Ayushi</strong><br />
-              Data Analyst · Python · Business Intelligence
+            <div class="polaroid-frame" id="polaroidFrame">
+              <div class="polaroid-tape"></div>
+              <div class="polaroid-photo-well">
+                <img
+                  id="profile-photo"
+                  src="assets/profile.jpeg"
+                  alt="Kumari Ayushi profile photo"
+                />
+              </div>
+              <div class="photo-caption">
+                <strong>Kumari Ayushi</strong>
+                Data Analyst · Python · BI
+              </div>
+              <div class="photo-sheen"></div>
             </div>
           </div>
         </div>
@@ -1381,13 +1902,13 @@
         </article>
       </section>
 
-      <section>
+      <section id="workflow">
         <div class="section-heading reveal">
           <div class="kicker">02 / Analytical workflow</div>
           <h2>From raw rows to useful decisions.</h2>
         </div>
 
-        <div class="method-grid">
+        <div class="method-grid reveal">
           <div class="card method reveal">
             <div class="number">01</div>
             <h3>Data Quality</h3>
@@ -1600,48 +2121,119 @@
     <footer>© 2026 Kumari Ayushi · Data Analytics Portfolio</footer>
 
     <script>
+      // ---- Theme toggle (light / dark) ----
+      const root = document.documentElement;
+      const themeToggle = document.getElementById("themeToggle");
+      const savedTheme = localStorage.getItem("ka-theme");
+
+      if (
+        savedTheme === "light" ||
+        (!savedTheme &&
+          window.matchMedia("(prefers-color-scheme: light)").matches &&
+          !window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        root.setAttribute("data-theme", "light");
+      }
+
+      themeToggle.addEventListener("click", () => {
+        const isLight = root.getAttribute("data-theme") === "light";
+        if (isLight) {
+          root.removeAttribute("data-theme");
+          localStorage.setItem("ka-theme", "dark");
+        } else {
+          root.setAttribute("data-theme", "light");
+          localStorage.setItem("ka-theme", "light");
+        }
+      });
+
+      // ---- Mobile nav: hamburger toggle open/close ----
+      const navToggle = document.getElementById("navToggle");
+      const navLinksMobile = document.getElementById("navLinksMobile");
+
+      function closeMobileNav() {
+        navToggle.classList.remove("open");
+        navLinksMobile.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+        navToggle.setAttribute("aria-label", "Open menu");
+        document.body.style.overflow = "";
+      }
+
+      function openMobileNav() {
+        navToggle.classList.add("open");
+        navLinksMobile.classList.add("open");
+        navToggle.setAttribute("aria-expanded", "true");
+        navToggle.setAttribute("aria-label", "Close menu");
+        document.body.style.overflow = "hidden";
+      }
+
+      navToggle.addEventListener("click", () => {
+        const isOpen = navLinksMobile.classList.contains("open");
+        if (isOpen) {
+          closeMobileNav();
+        } else {
+          openMobileNav();
+        }
+      });
+
+      // Close the mobile menu after tapping a link
+      navLinksMobile.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", closeMobileNav);
+      });
+
+      // Close when clicking outside the menu / toggle
+      document.addEventListener("click", (event) => {
+        if (!navLinksMobile.classList.contains("open")) return;
+        const clickedInsideMenu = navLinksMobile.contains(event.target);
+        const clickedToggle = navToggle.contains(event.target);
+        if (!clickedInsideMenu && !clickedToggle) closeMobileNav();
+      });
+
+      // Close on Escape
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeMobileNav();
+      });
+
+      // Close automatically if the viewport grows back to desktop width
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 900) closeMobileNav();
+      });
+
+      // ---- Advanced polaroid card: floats gently, tilts toward cursor,
+      // and leans in on scroll — inspired by a pinned/tilted photo card. ----
       const stage = document.getElementById("photoStage");
-      const photo = document.getElementById("profile-photo");
+      const frame = document.getElementById("polaroidFrame");
       const profileArea = document.getElementById("profileArea");
       const reduceMotion = window.matchMedia(
         "(prefers-reduced-motion: reduce)",
       );
 
-      let stageWidth = 0;
-      let stageHeight = 0;
-      let photoWidth = 0;
-      let photoHeight = 0;
+      const BASE_ROTATE = -4.5; // resting polaroid tilt, like a printed photo laid on a desk
 
-      let mouseX = 0.5;
-      let mouseY = 0.5;
-      let smoothMouseX = 0.5;
-      let smoothMouseY = 0.5;
+      let targetTiltX = 0;
+      let targetTiltY = 0;
+      let tiltX = 0;
+      let tiltY = 0;
 
       let scrollTarget = 0;
       let smoothScroll = 0;
       let startTime = performance.now();
+      let pointerActive = false;
+      let entranceOffset = 0;
 
-      function measurePhotoArea() {
-        const stageBox = stage.getBoundingClientRect();
-        const photoBox = photo.getBoundingClientRect();
+      function updatePointer(event) {
+        const rect = stage.getBoundingClientRect();
+        const px = (event.clientX - rect.left) / rect.width - 0.5;
+        const py = (event.clientY - rect.top) / rect.height - 0.5;
 
-        stageWidth = stageBox.width;
-        stageHeight = stageBox.height;
-        photoWidth = photoBox.width;
-        photoHeight = photoBox.height;
+        targetTiltY = px * 22; // rotateY, left/right
+        targetTiltX = -py * 16; // rotateX, up/down
+        pointerActive = true;
       }
 
-      function updateMouse(event) {
-        const rect = profileArea.getBoundingClientRect();
-
-        mouseX = Math.max(
-          0,
-          Math.min(1, (event.clientX - rect.left) / rect.width),
-        );
-        mouseY = Math.max(
-          0,
-          Math.min(1, (event.clientY - rect.top) / rect.height),
-        );
+      function resetPointer() {
+        pointerActive = false;
+        targetTiltX = 0;
+        targetTiltY = 0;
       }
 
       function updateScrollTarget() {
@@ -1655,70 +2247,72 @@
         );
       }
 
-      function animatePhoto(now) {
+      function animatePolaroid(now) {
         if (reduceMotion.matches) {
-          photo.style.transform = "translate3d(50px, 70px, 0)";
+          frame.style.transform = `rotate(${BASE_ROTATE}deg)`;
           return;
         }
 
         const elapsed = (now - startTime) / 1000;
 
-        smoothMouseX += (mouseX - smoothMouseX) * 0.035;
-        smoothMouseY += (mouseY - smoothMouseY) * 0.035;
-        smoothScroll += (scrollTarget - smoothScroll) * 0.045;
+        tiltX += (targetTiltX - tiltX) * 0.07;
+        tiltY += (targetTiltY - tiltY) * 0.07;
+        smoothScroll += (scrollTarget - smoothScroll) * 0.05;
+        entranceOffset += (0 - entranceOffset) * 0.09;
 
-        const usableX = Math.max(0, stageWidth - photoWidth - 24);
-        const usableY = Math.max(0, stageHeight - photoHeight - 78);
+        const floatY = Math.sin(elapsed * 0.6) * 10;
+        const floatX = Math.sin(elapsed * 0.4 + 1.1) * 6;
+        const driftRotate = Math.sin(elapsed * 0.35) * 1.6;
+        const scrollTilt = smoothScroll * -6;
+        const scrollLift = stage.classList.contains("pinned")
+          ? entranceOffset
+          : smoothScroll * -14;
 
-        const centerX = usableX / 2 + 12;
-        const centerY = usableY / 2 + 12;
+        stage.style.transform = `translate3d(${floatX}px, ${floatY + scrollLift}px, 0)`;
+        frame.style.transform = `
+          rotateX(${tiltX}deg)
+          rotateY(${tiltY}deg)
+          rotate(${BASE_ROTATE + driftRotate + scrollTilt}deg)
+          ${pointerActive ? "scale(1.02)" : "scale(1)"}
+        `;
 
-        const organicX =
-          Math.sin(elapsed * 0.42) * usableX * 0.31 +
-          Math.sin(elapsed * 0.71 + 1.4) * usableX * 0.08;
-
-        const organicY =
-          Math.cos(elapsed * 0.34) * usableY * 0.3 +
-          Math.sin(elapsed * 0.58) * usableY * 0.08;
-
-        const mouseOffsetX = (smoothMouseX - 0.5) * usableX * 0.26;
-        const mouseOffsetY = (smoothMouseY - 0.5) * usableY * 0.18;
-
-        const scrollOffsetY = smoothScroll * usableY * 0.16;
-        const rotation =
-          Math.sin(elapsed * 0.35) * 2.4 +
-          (smoothMouseX - 0.5) * 3 +
-          smoothScroll * -2;
-
-        const x = Math.max(
-          0,
-          Math.min(usableX, centerX + organicX + mouseOffsetX),
-        );
-        const y = Math.max(
-          0,
-          Math.min(usableY, centerY + organicY + mouseOffsetY + scrollOffsetY),
-        );
-
-        photo.style.transform = `translate3d(${x}px, ${y}px, 0) rotate(${rotation}deg)`;
-
-        requestAnimationFrame(animatePhoto);
+        requestAnimationFrame(animatePolaroid);
       }
 
-      const resizeObserver = new ResizeObserver(measurePhotoArea);
-      resizeObserver.observe(stage);
-      resizeObserver.observe(photo);
-
-      window.addEventListener("resize", () => {
-        measurePhotoArea();
-        updateScrollTarget();
-      });
-
-      window.addEventListener("mousemove", updateMouse, { passive: true });
+      stage.addEventListener("mousemove", updatePointer, { passive: true });
+      stage.addEventListener("mouseleave", resetPointer, { passive: true });
       window.addEventListener("scroll", updateScrollTarget, { passive: true });
 
-      measurePhotoArea();
       updateScrollTarget();
-      requestAnimationFrame(animatePhoto);
+      requestAnimationFrame(animatePolaroid);
+
+      // ---- Pin system: the polaroid lives in the hero at the top of the
+      // page. Once you scroll past the hero it settles into ONE fixed spot
+      // (bottom-right of the screen) and stays exactly there — visible on
+      // every section — for the rest of the scroll, in both directions. ----
+      const heroSection = document.getElementById("home");
+
+      function setPinned(shouldPin) {
+        const isPinned = stage.classList.contains("pinned");
+        if (shouldPin === isPinned) return;
+
+        if (shouldPin) {
+          stage.classList.add("pinned");
+          entranceOffset = -60; // starts slightly above rest, glides down into place
+        } else {
+          stage.classList.remove("pinned");
+          entranceOffset = 0;
+        }
+      }
+
+      const heroObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => setPinned(!entry.isIntersecting));
+        },
+        { threshold: 0, rootMargin: "0px 0px -70% 0px" },
+      );
+
+      if (heroSection) heroObserver.observe(heroSection);
 
       const revealObserver = new IntersectionObserver(
         (entries) => {
