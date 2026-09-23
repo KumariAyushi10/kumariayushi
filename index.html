@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -6,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Kumari Ayushi — Data Analyst portfolio featuring Python analytics, business intelligence and machine learning projects."
+      content="Kumari Ayushi — Data Analyst portfolio featuring SQL, Python analytics, A/B testing, business intelligence and machine learning projects."
     />
     <title>Kumari Ayushi | Data Analyst</title>
 
@@ -437,6 +436,11 @@
         box-shadow:
           0 0 55px rgba(214, 173, 85, 0.1),
           inset 0 0 30px rgba(214, 173, 85, 0.025);
+        margin-bottom: 18px;
+      }
+
+      .project-main:not(:first-of-type) {
+        margin-top: 46px;
       }
 
       .project-top {
@@ -638,7 +642,13 @@
         font-size: 0.82rem;
       }
 
-      .about-grid,
+      .about-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 14px;
+        margin-top: 22px;
+      }
+
       .certification-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -655,6 +665,7 @@
         grid-template-columns: auto 1fr auto;
         gap: 18px;
         align-items: center;
+        cursor: pointer;
       }
 
       .certificate-mark {
@@ -848,6 +859,7 @@
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
         <a href="#certifications">Certifications</a>
+        <a href="#education">Education</a>
         <a href="#contact">Contact</a>
       </div>
 
@@ -928,15 +940,199 @@
           <div class="kicker">01 / Projects</div>
           <h2>Selected work.</h2>
           <p class="section-sub">
-            A collection of analytics, machine learning and Python projects
-            focused on solving practical problems with data.
+            Five end-to-end analytics projects spanning SaaS metrics, A/B
+            testing, retail analytics, credit risk and restaurant data — each
+            combining SQL, Python and Excel/BI to turn raw data into business
+            recommendations.
           </p>
         </div>
 
+        <!-- 01 - SaaS Analytics -->
+        <article class="project-main reveal">
+          <div class="project-top">
+            <div class="project-number">01 · SAAS REVENUE & CUSTOMER ANALYTICS</div>
+            <a
+              class="project-link"
+              href="https://github.com/KumariAyushi10/saas-analytics-project"
+              target="_blank"
+              rel="noopener"
+              >View repository ↗</a
+            >
+          </div>
+
+          <h3 class="project-title">SaaS Data Analysis Project</h3>
+
+          <p class="project-description">
+            An end-to-end analysis of a SaaS company built across three tools
+            at once: MySQL for querying, a Jupyter notebook for exploration
+            and charting, and a formula-driven Excel workbook for reporting.
+            The project mirrors a real analyst workflow — the same underlying
+            data is loaded into a relational database, queried with SQL, and
+            summarized in a Dashboard tab so KPIs recalculate automatically
+            whenever the raw data changes.
+          </p>
+
+          <div class="tags">
+            <span class="tag">SQL</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">Python</span>
+            <span class="tag">Jupyter</span>
+            <span class="tag">Pandas</span>
+            <span class="tag">Matplotlib</span>
+            <span class="tag">Excel</span>
+            <span class="tag">KPI Dashboard</span>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <strong>3</strong><span>tools in one pipeline</span>
+            </div>
+            <div class="stat">
+              <strong>SQL</strong><span>+ Python + Excel</span>
+            </div>
+            <div class="stat">
+              <strong>Live</strong><span>Excel KPI dashboard</span>
+            </div>
+            <div class="stat">
+              <strong>MIT</strong><span>licensed &amp; reproducible</span>
+            </div>
+          </div>
+
+          <div class="project-grid">
+            <div class="card">
+              <h3>What it covers</h3>
+              <div class="insight">
+                <strong>Same data, three lenses.</strong>
+                <p>
+                  A single SaaS dataset is analyzed via MySQL queries, a
+                  Python/Jupyter notebook, and an Excel workbook — so the
+                  same business questions can be answered from whichever tool
+                  fits the audience.
+                </p>
+              </div>
+              <div class="insight">
+                <strong>Reproducible by design.</strong>
+                <p>
+                  Scripts (<code>build_database.py</code>,
+                  <code>build_excel.py</code>, <code>build_mysql_dump.py</code>)
+                  regenerate the database, dump and workbook from scratch, so
+                  the whole analysis can be rebuilt end to end.
+                </p>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3>Workflow</h3>
+              <ul>
+                <li>Load and structure SaaS company data in MySQL.</li>
+                <li>Write SQL queries for customer and revenue analysis.</li>
+                <li>Explore and chart trends in a Jupyter notebook.</li>
+                <li>Build a Dashboard tab with live Excel formulas.</li>
+                <li>Keep SQL, Python and Excel outputs in sync.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- 02 - A/B Testing -->
+        <article class="project-main reveal">
+          <div class="project-top">
+            <div class="project-number">02 · A/B TEST ANALYSIS · CHECKOUT EXPERIMENT</div>
+            <a
+              class="project-link"
+              href="https://github.com/KumariAyushi10/ab-testing-analysis"
+              target="_blank"
+              rel="noopener"
+              >View repository ↗</a
+            >
+          </div>
+
+          <h3 class="project-title">NovaCart Checkout A/B Test</h3>
+
+          <p class="project-description">
+            A statistical analysis of a simulated 3-week A/B test on a
+            one-click checkout flow for NovaCart, a fictional e-commerce
+            brand. 20,000 synthetic user sessions are split into Control and
+            Treatment groups, then measured on conversion rate, average order
+            value, cart abandonment, checkout time and revenue per session
+            using proper hypothesis testing rather than a simple before/after
+            comparison.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">SciPy</span>
+            <span class="tag">SQL</span>
+            <span class="tag">SQLite</span>
+            <span class="tag">Jupyter</span>
+            <span class="tag">Excel</span>
+            <span class="tag">Hypothesis Testing</span>
+            <span class="tag">Z-Test / T-Test</span>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <strong>20,000</strong><span>user sessions analyzed</span>
+            </div>
+            <div class="stat">
+              <strong>~50/50</strong><span>Control vs. Treatment split</span>
+            </div>
+            <div class="stat">
+              <strong>+2.1pp</strong><span>built-in conversion lift</span>
+            </div>
+            <div class="stat">
+              <strong>95%</strong><span>confidence interval on lift</span>
+            </div>
+          </div>
+
+          <div class="project-grid">
+            <div class="card">
+              <h3>Key findings</h3>
+              <div class="insight">
+                <strong>The new checkout converts better.</strong>
+                <p>
+                  A two-proportion z-test shows the Treatment group's
+                  conversion rate — around 13% versus roughly 10.7% for
+                  Control — is significantly higher than the baseline flow.
+                </p>
+              </div>
+              <div class="insight">
+                <strong>Mobile sees the biggest lift.</strong>
+                <p>
+                  The treatment effect was deliberately weighted to boost
+                  mobile conversion the most, and the segment breakdown by
+                  device confirms mobile users respond most strongly to the
+                  simplified flow.
+                </p>
+              </div>
+              <div class="insight">
+                <strong>Order value and speed both improve.</strong>
+                <p>
+                  A Welch's t-test on order value alongside checkout-time
+                  comparisons shows the one-click flow modestly raises AOV
+                  while shortening time to purchase.
+                </p>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3>Methodology</h3>
+              <ul>
+                <li>Generate 20,000 sessions with a documented random process.</li>
+                <li>Aggregate metrics by group and segment in SQL.</li>
+                <li>Run a two-proportion z-test on conversion rate.</li>
+                <li>Run a Welch's t-test on order value.</li>
+                <li>Build a live-formula Excel dashboard (SUMIFS/COUNTIFS).</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- 03 - Superstore (unchanged) -->
         <article class="project-main reveal">
           <div class="project-top">
             <div class="project-number">
-              01 · RETAIL CUSTOMER & SALES ANALYTICS
+              03 · RETAIL CUSTOMER & SALES ANALYTICS
             </div>
             <a
               class="project-link"
@@ -980,101 +1176,209 @@
               <strong>2014–2017</strong><span>analysis period</span>
             </div>
           </div>
+
+          <div class="project-grid">
+            <div class="card">
+              <h3>Key findings</h3>
+
+              <div class="insight">
+                <strong>Discounts can destroy margin.</strong>
+                <p>
+                  Profit margin is about 30% at 0% discount and declines as
+                  discounts increase, becoming negative at 21%+ discount.
+                </p>
+              </div>
+
+              <div class="insight">
+                <strong>Revenue can hide product problems.</strong>
+                <p>
+                  Tables and Bookcases generate meaningful revenue but are
+                  unprofitable overall in the dataset.
+                </p>
+              </div>
+
+              <div class="insight">
+                <strong>Revenue is concentrated.</strong>
+                <p>
+                  8 of 17 sub-categories contribute roughly 80% of total revenue,
+                  giving the business a clear prioritization opportunity.
+                </p>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3>Business recommendations</h3>
+              <ul>
+                <li>Set a disciplined discount ceiling.</li>
+                <li>Review pricing and costs for loss-making categories.</li>
+                <li>Give high-value customers targeted VIP treatment.</li>
+                <li>Run win-back campaigns for at-risk customers.</li>
+                <li>Investigate the early cohort-retention drop.</li>
+              </ul>
+            </div>
+          </div>
         </article>
 
-        <div class="project-grid">
-          <div class="card reveal">
-            <h3>Key findings</h3>
+        <!-- 04 - Loan Portfolio Analysis -->
+        <article class="project-main reveal">
+          <div class="project-top">
+            <div class="project-number">04 · CREDIT RISK & PORTFOLIO ANALYSIS</div>
+            <a
+              class="project-link"
+              href="https://github.com/KumariAyushi10/loan-portfolio-analysis"
+              target="_blank"
+              rel="noopener"
+              >View repository ↗</a
+            >
+          </div>
 
-            <div class="insight">
-              <strong>Discounts can destroy margin.</strong>
-              <p>
-                Profit margin is about 30% at 0% discount and declines as
-                discounts increase, becoming negative at 21%+ discount.
-              </p>
+          <h3 class="project-title">Loan Portfolio Analysis</h3>
+
+          <p class="project-description">
+            A SQL-only analysis of the public Lending Club loan dataset,
+            built entirely in MySQL. The project stages a messy 140+ column
+            real-world CSV into a clean, properly-typed table, then answers
+            portfolio, risk and borrower-profiling questions using window
+            functions, views and reusable stored procedures for on-demand
+            reporting.
+          </p>
+
+          <div class="tags">
+            <span class="tag">SQL</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">MySQL Workbench</span>
+            <span class="tag">Stored Procedures</span>
+            <span class="tag">Window Functions</span>
+            <span class="tag">Views</span>
+            <span class="tag">Data Cleaning</span>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <strong>140+</strong><span>raw source columns cleaned</span>
             </div>
-
-            <div class="insight">
-              <strong>Revenue can hide product problems.</strong>
-              <p>
-                Tables and Bookcases generate meaningful revenue but are
-                unprofitable overall in the dataset.
-              </p>
+            <div class="stat">
+              <strong>4</strong><span>analysis sections</span>
             </div>
-
-            <div class="insight">
-              <strong>Revenue is concentrated.</strong>
-              <p>
-                8 of 17 sub-categories contribute roughly 80% of total revenue,
-                giving the business a clear prioritization opportunity.
-              </p>
+            <div class="stat">
+              <strong>3</strong><span>reusable stored procedures</span>
+            </div>
+            <div class="stat">
+              <strong>DENSE_RANK</strong><span>state risk ranking view</span>
             </div>
           </div>
 
-          <div class="card reveal">
-            <h3>Business recommendations</h3>
-            <ul>
-              <li>Set a disciplined discount ceiling.</li>
-              <li>Review pricing and costs for loss-making categories.</li>
-              <li>Give high-value customers targeted VIP treatment.</li>
-              <li>Run win-back campaigns for at-risk customers.</li>
-              <li>Investigate the early cohort-retention drop.</li>
-            </ul>
+          <div class="project-grid">
+            <div class="card">
+              <h3>What the analysis answers</h3>
+              <div class="insight">
+                <strong>Portfolio composition.</strong>
+                <p>
+                  Totals, grade and purpose breakdowns, and the top states by
+                  loan volume give a first read on how the book is built.
+                </p>
+              </div>
+              <div class="insight">
+                <strong>Default risk by state.</strong>
+                <p>
+                  A <code>DefaultRateByState()</code> procedure and a ranked
+                  <code>state_risk_ranking</code> view surface which states
+                  and grades carry the most risk.
+                </p>
+              </div>
+              <div class="insight">
+                <strong>Borrower profiling.</strong>
+                <p>
+                  Income by home ownership, verified vs. non-verified
+                  borrowers, and debt-to-income patterns are compared via a
+                  <code>LoanProfile()</code> lookup procedure.
+                </p>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3>Data pipeline</h3>
+              <ul>
+                <li>Stage the raw CSV as text into <code>raw_loans</code>.</li>
+                <li>Cast and clean into a typed <code>loans</code> table.</li>
+                <li>Guard blanks with <code>NULLIF</code> before casting.</li>
+                <li>Strip "%" from interest rate before conversion.</li>
+                <li>Serve any state via a one-call <code>StateDashboard()</code>.</li>
+              </ul>
+            </div>
           </div>
-        </div>
+        </article>
 
-        <div class="other-projects">
-          <article class="card project-card reveal">
-            <div class="project-index">02 · PYTHON / AI</div>
-            <h3>AI Resume Analyser</h3>
-            <p class="project-description">
-              A Python and Flask application that analyzes PDF, DOCX and TXT
-              resumes, calculates an ATS compatibility score, identifies skill
-              gaps and provides actionable improvement suggestions.
-            </p>
+        <!-- 05 - Swiggy SQL Analysis -->
+        <article class="project-main reveal">
+          <div class="project-top">
+            <div class="project-number">05 · RESTAURANT & DELIVERY ANALYTICS</div>
             <a
               class="project-link"
-              href="https://github.com/KumariAyushi10/AI_Resume_Analyser"
+              href="https://github.com/KumariAyushi10/swiggy-sql-analysis"
               target="_blank"
               rel="noopener"
-              >View on GitHub ↗</a
+              >View repository ↗</a
             >
-          </article>
+          </div>
 
-          <article class="card project-card reveal">
-            <div class="project-index">03 · PYTHON / AI</div>
-            <h3>Smart Energy Meter</h3>
-            <p class="project-description">
-              An AI-based energy meter project built around a dataset, with
-              features such as eco-mode and theft detection to represent and
-              monitor energy-related data.
-            </p>
-            <a
-              class="project-link"
-              href="https://github.com/KumariAyushi10/SmartEnergyMeter"
-              target="_blank"
-              rel="noopener"
-              >View on GitHub ↗</a
-            >
-          </article>
+          <h3 class="project-title">Swiggy Restaurant SQL Analysis</h3>
 
-          <article class="card project-card reveal">
-            <div class="project-index">04 · PYTHON / AUTOMATION</div>
-            <h3>Robobuddy</h3>
-            <p class="project-description">
-              A Python assistant for everyday tasks including web search,
-              YouTube and Google access, weather, alarms, email, nearby-location
-              search, music playback and opening local applications.
-            </p>
-            <a
-              class="project-link"
-              href="https://github.com/KumariAyushi10/Robobuddy"
-              target="_blank"
-              rel="noopener"
-              >View on GitHub ↗</a
-            >
-          </article>
-        </div>
+          <p class="project-description">
+            A MySQL analysis of a public Swiggy restaurants dataset, covering
+            pricing, ratings, cuisine popularity and delivery performance
+            across cities. After cleaning nulls, duplicates and data types,
+            analytical SQL queries answer business questions aimed at
+            spotting high-performing markets and areas that need improvement.
+          </p>
+
+          <div class="tags">
+            <span class="tag">SQL</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">MySQL Workbench</span>
+            <span class="tag">Data Cleaning</span>
+            <span class="tag">City-Level Analysis</span>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <strong>8,680</strong><span>restaurants analyzed</span>
+            </div>
+            <div class="stat">
+              <strong>10–11</strong><span>fields per restaurant</span>
+            </div>
+            <div class="stat">
+              <strong>5</strong><span>core business questions</span>
+            </div>
+            <div class="stat">
+              <strong>City</strong><span>level price &amp; rating cuts</span>
+            </div>
+          </div>
+
+          <div class="project-grid">
+            <div class="card">
+              <h3>Business questions answered</h3>
+              <ul>
+                <li>Which restaurants have the highest ratings and rating counts?</li>
+                <li>How do average ratings and prices vary by city?</li>
+                <li>What are the most common food/cuisine types?</li>
+                <li>Does price tier relate to delivery time or rating?</li>
+                <li>Which cities have the fastest average delivery times?</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <h3>Data cleaning steps</h3>
+              <ul>
+                <li>Imported the raw CSV via Workbench's Import Wizard.</li>
+                <li>Checked and handled NULLs in ratings and price columns.</li>
+                <li>Removed duplicate restaurant entries.</li>
+                <li>Verified numeric types for price, ratings and delivery time.</li>
+                <li>Wrote analytical SQL queries against a clean <code>restaurants</code> table.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
       </section>
 
       <section>
@@ -1153,7 +1457,7 @@
 
       <section id="experience">
         <div class="section-heading reveal">
-          <div class="kicker">04 / Experience & education</div>
+          <div class="kicker">04 / Experience</div>
           <h2>Where I’m building experience.</h2>
 
           <div class="about-grid">
@@ -1164,12 +1468,6 @@
                 Working with data to identify patterns, communicate insights and
                 support data-driven decisions.
               </p>
-            </article>
-
-            <article class="card reveal">
-              <div class="kicker">EDUCATION</div>
-              <h3>B.Tech · Computer Science & Engineering</h3>
-              <p>Galgotias University, Greater Noida, Uttar Pradesh, India.</p>
             </article>
 
             <article class="card reveal">
@@ -1190,7 +1488,7 @@
           <h2>Continuous learning.</h2>
 
           <div class="certification-grid">
-            <article class="card certification reveal">
+            <a class="card certification reveal" href="assets/certificate.pdf" target="_blank" rel="noopener">
               <div class="certificate-mark">✦</div>
 
               <div class="certificate-info">
@@ -1201,9 +1499,9 @@
               </div>
 
               <div class="certificate-date">Issued Aug 2026</div>
-            </article>
+            </a>
 
-            <article class="card certification reveal">
+            <a class="card certification reveal" href="https://media.licdn.com/dms/document/media/v2/D4E1FAQHsUxUVEOheOw/feedshare-document-pdf-analyzed/B4EZP9ZO.6HsAY-/0/1735123072586?e=1790812800&v=beta&t=suvZcANvgeAZPWh6bsB7Y1CG3Rlc8gN0QMp9oQUDHiQ" target="_blank" rel="noopener">
               <div class="certificate-mark">✦</div>
 
               <div class="certificate-info">
@@ -1212,9 +1510,9 @@
               </div>
 
               <div class="certificate-date">Issued Dec 2024</div>
-            </article>
+            </a>
 
-            <article class="card certification reveal">
+            <a class="card certification reveal" href="https://media.licdn.com/dms/document/media/v2/D4E1FAQGdf_XRv4VY1w/feedshare-document-pdf-analyzed/feedshare-document-pdf-analyzed/0/1733123846530?e=1790812800&v=beta&t=_a-76HE_lz42VH9_TBQ5YB_4ZSFRKO8bQKWOCs0YhI8" target="_blank" rel="noopener">
               <div class="certificate-mark">✦</div>
 
               <div class="certificate-info">
@@ -1223,9 +1521,9 @@
               </div>
 
               <div class="certificate-date">Issued Dec 2024</div>
-            </article>
+            </a>
 
-            <article class="card certification reveal">
+            <a class="card certification reveal" href="https://media.licdn.com/dms/document/media/v2/D4E1FAQGm7YpnrN-awA/feedshare-document-pdf-analyzed/feedshare-document-pdf-analyzed/0/1732545274960?e=1790812800&v=beta&t=cRFTKXwT8BzNk6NEPZsvbCjQHoTyTvnfJwAYwrtrtGA" target="_blank" rel="noopener">
               <div class="certificate-mark">✦</div>
 
               <div class="certificate-info">
@@ -1234,13 +1532,28 @@
               </div>
 
               <div class="certificate-date">Issued Nov 2024</div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="education">
+        <div class="section-heading reveal">
+          <div class="kicker">06 / Education</div>
+          <h2>Academic background.</h2>
+
+          <div class="about-grid">
+            <article class="card reveal">
+              <div class="kicker">B.TECH</div>
+              <h3>Computer Science & Engineering</h3>
+              <p>Galgotias University, Greater Noida, Uttar Pradesh, India.</p>
             </article>
           </div>
         </div>
       </section>
 
       <section class="contact" id="contact">
-        <div class="kicker">06 / Contact</div>
+        <div class="kicker">07 / Contact</div>
         <h2>Let’s work with data.</h2>
 
         <p>
